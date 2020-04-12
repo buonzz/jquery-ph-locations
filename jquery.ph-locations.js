@@ -30,7 +30,7 @@
 		// Avoid Plugin.prototype conflicts
 		$.extend( Plugin.prototype, {
 			init: function() {
-				this.fetch_list();
+				return this
             },
             
 			fetch_list: function() {
@@ -41,7 +41,8 @@
 					success: this.onDataArrived.bind(this),
 					data: $.param(this.map_parameters())
                 });
-                this.settings
+
+
 
             }, // fetch list
             onDataArrived(data){

@@ -68,7 +68,8 @@
                 $('#province').on('change', my_handlers.fill_cities);
                 $('#city').on('change', my_handlers.fill_barangays);
 
-                $('#region').ph_locations({'location_type': 'regions'})
+                var region = $('#region').ph_locations({'location_type': 'regions'});
+                    region.fetch_list();
             });
         </script>
     </body>
