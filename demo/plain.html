@@ -42,11 +42,22 @@
             }
 
             function fill_cities(){
-                $('#city').ph_locations({'location_type': 'cities'}).change(fill_barangays);
+
+                var province_code = $(this).val();
+                
+                $('#city').ph_locations({
+                    'location_type': 'cities',
+                    'filter': {"province_code": province_code}
+                }).change(fill_barangays);
             }
 
             function fill_barangays(){
-                $('#barangay').ph_locations({'location_type': 'barangays'});
+                var city_code = $(this).val();
+                
+                $('#barangay').ph_locations({
+                    'location_type': 'barangays',
+                    'filter': {"city_code": city_code}
+                });
             }
 
 
