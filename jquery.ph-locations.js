@@ -39,7 +39,7 @@
                     type: "GET",
                     url: this.settings.api_base_url + 'v1/' +  this.settings.location_type,
 					success: this.onDataArrived.bind(this),
-					data: $.param()
+					data: $.param(this.map_parameters())
                 });
                 this.settings
 
@@ -49,7 +49,25 @@
 			},
 
 			map_parameters(){
-				this.settings.filter
+				
+				var mapped_parameter = {
+					"filter" : []
+				};
+
+				 for(var property in this.settings.filter)
+				 {
+					let cur_obj = {
+						'where': []
+					};
+
+				    cur_obj.where[property] = this.settings.filter[property];
+
+					mapped_parameter.filter.push(cur_obj);
+				 }	
+
+				console.log(mapped_parameter);
+
+				 return mapped_parameter;
 			},
 
 			build_options(params){
