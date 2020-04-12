@@ -50,13 +50,13 @@
 
 			map_parameters(){
 
-				var mapped_parameter = {"filters": {
+				var mapped_parameter = {"filter": {
 					"where": {}
 					} 
 				};
 
 				 for(var property in this.settings.filter)
-				    mapped_parameter.filters.where[property] = this.settings.filter[property];
+				    mapped_parameter.filter.where[property] = this.settings.filter[property];
 
 				 return mapped_parameter;
 			},
