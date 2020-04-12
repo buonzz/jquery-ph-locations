@@ -8,15 +8,15 @@
         <div>
             <table>
                 <tr>
-                    <td>Regions</td>
+                    <td>Region</td>
                     <td><select id="region"></select></td>
                 </tr>
                 <tr>
-                    <td>Provinces</td>
+                    <td>Province</td>
                     <td><select id="province"></select></td>
                 </tr>
                 <tr>
-                    <td>Cities</td>
+                    <td>City</td>
                     <td><select id="city"></select></td>
                 </tr>
                 <tr>
@@ -26,11 +26,13 @@
             </table>
 
         </div>
-        <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
-        <script type="text/javascript" src="jquery.ph-locations.js"></script>
+        <script type="text/javascript" src="../jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="../jquery.ph-locations.js"></script>
         <script type="text/javascript">
             $(function(){
-                $('#region').ph_locations({'location_type': 'regions'});
+                $('#region').ph_locations({'location_type': 'regions'}).change(function(e){
+                    console.log($(this).val());
+                });
             });
         </script>
     </body>
