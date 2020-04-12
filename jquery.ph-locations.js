@@ -78,12 +78,14 @@
 
 
 		$.fn[ pluginName ] = function( options ) {
-			return this.each( function() {
+			var plugin;
+			this.each( function() {
 				if ( !$.data( this, "plugin_" + pluginName ) ) {
 					$.data( this, "plugin_" +
 						pluginName, new Plugin( this, options ) );
 				}
 			} );
+			return plugin;
 		};
 
 } )( jQuery, window, document );
