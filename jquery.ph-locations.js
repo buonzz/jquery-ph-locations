@@ -33,16 +33,18 @@
 				return this
             },
             
-			fetch_list: function() {
+			fetch_list: function (filter) {
 
-                $.ajax({
+				this.settings.filter = filter;
+
+				console.log(filter);
+
+				$.ajax({
                     type: "GET",
                     url: this.settings.api_base_url + 'v1/' +  this.settings.location_type,
 					success: this.onDataArrived.bind(this),
 					data: $.param(this.map_parameters())
                 });
-
-
 
             }, // fetch list
             onDataArrived(data){
@@ -77,11 +79,19 @@
 		} );
 
 
-		$.fn[ pluginName ] = function( options ) {
+		$.fn[ pluginName ] = function( options, args ) {
 			return this.each( function() {
-				if ( !$.data( this, "plugin_" + pluginName ) ) {
-					$.data( this, "plugin_" +
-						pluginName, new Plugin( this, options ) );
+				var $plugin = $.data( this, "plugin_" + pluginName );
+				if (!$plugin) {
+					var pluginOptions = (typeof options === 'object') ? options : {};
+					$plugin = $.data( this, "plugin_" + pluginName, new Plugin( this, pluginOptions ) );
+				}
+				
+				if (typeof options === 'string') {
+					if (typeof $plugin[options] === 'function') {
+						if (typeof args !== 'object') args = [args];
+						$plugin[options].apply($plugin, args);
+					}
 				}
 			} );
 		};
