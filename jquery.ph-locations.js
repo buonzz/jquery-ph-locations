@@ -1,40 +1,25 @@
 /*
  *  jquery-ph-locations - v1.0.0
- *  A jump-start for jQuery plugins development.
- *  http://jqueryboilerplate.com
+ *  jQuery Plugin for displaying dropdown list of Philippines' Region, Province, City and Barangay in your webpage.
+ *  https://github.com/buonzz/jquery-ph-locations
  *
- *  Made by Zeno Rocha
+ *  Made by Buonzz Systems
  *  Under MIT License
  */
-// the semi-colon before function invocation is a safety net against concatenated
-// scripts and/or other plugins which may not be closed properly.
 ;( function( $, window, document, undefined ) {
 
 	"use strict";
 
-		// undefined is used here as the undefined global variable in ECMAScript 3 is
-		// mutable (ie. it can be changed by someone else). undefined isn't really being
-		// passed in so we can ensure the value of it is truly undefined. In ES5, undefined
-		// can no longer be modified.
-
-		// window and document are passed through as local variable rather than global
-		// as this (slightly) quickens the resolution process and can be more efficiently
-		// minified (especially when both are regularly referenced in your plugin).
-
-		// Create the defaults once
-		var pluginName = "defaultPluginName",
+		// defaults
+		var pluginName = "ph_locations",
 			defaults = {
-				propertyName: "value"
-			};
+                location_type : "city", // what data this control supposed to display? regions, provinces, cities or barangays?,
+                api_base_url: 'https://ph-locations-api.buonzz.com/'
+            };
 
-		// The actual plugin constructor
+		// plugin constructor
 		function Plugin ( element, options ) {
 			this.element = element;
-
-			// jQuery has an extend method which merges the contents of two or
-			// more objects, storing the result in the first object. The first object
-			// is generally empty as we don't want to alter the default options for
-			// future instances of the plugin
 			this.settings = $.extend( {}, defaults, options );
 			this._defaults = defaults;
 			this._name = pluginName;
@@ -44,24 +29,26 @@
 		// Avoid Plugin.prototype conflicts
 		$.extend( Plugin.prototype, {
 			init: function() {
+				this.fetch_list();
+            },
+            
+			fetch_list: function() {
 
-				// Place initialization logic here
-				// You already have access to the DOM element and
-				// the options via the instance, e.g. this.element
-				// and this.settings
-				// you can add more functions like the one below and
-				// call them like the example bellow
-				this.yourOtherFunction( "jQuery Boilerplate" );
-			},
-			yourOtherFunction: function( text ) {
+                $.ajax({
+                    type: "GET",
+                    url: this.settings.api_base_url + '/v1/' +  this.settings.location_type,
+                    success: this.onDataArrived
+                });
+                this.settings
 
-				// some logic
-				$( this.element ).text( text );
-			}
+            }, // fetch list
+            onDataArrived(data){
+                console.log(data);
+            }
+            
 		} );
 
-		// A really lightweight plugin wrapper around the constructor,
-		// preventing against multiple instantiations
+
 		$.fn[ pluginName ] = function( options ) {
 			return this.each( function() {
 				if ( !$.data( this, "plugin_" + pluginName ) ) {

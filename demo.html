@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery PH Locations Demo</title>
+    </head>
+    <body>
+        <h1>jQuery PH Locations Demo</h1>
+        <div>
+            <select id="regions"></select>
+        </div>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="jquery.ph-locations.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                $('#regions').ph_locations({'location_type': 'regions'});
+            });
+        </script>
+    </body>
+</html>
