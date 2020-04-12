@@ -37,14 +37,26 @@
                 $.ajax({
                     type: "GET",
                     url: this.settings.api_base_url + '/v1/' +  this.settings.location_type,
-                    success: this.onDataArrived
+                    success: this.onDataArrived.bind(this)
                 });
                 this.settings
 
             }, // fetch list
             onDataArrived(data){
-                console.log(data);
-            }
+				$(this.element).html(this.build_options(data));
+			},
+
+			build_options(params){
+				var shtml = "";
+
+				for(var i=0; i<params.data.length;i++){
+					shtml += '<option value="' + params.data[i].id + '">';
+					shtml +=  params.data[i].name ;
+					shtml += '/<option>';
+				}
+
+				return shtml
+			}
             
 		} );
 
