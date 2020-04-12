@@ -38,7 +38,7 @@
                     $('#province').ph_locations({
                         'location_type': 'provinces',
                         'filter': {"region_code": region_code}
-                    }).on('change', my_handlers.fill_cities);
+                    });
 
                 },
 
@@ -49,7 +49,7 @@
                     $('#city').ph_locations({
                         'location_type': 'cities',
                         'filter': {"province_code": province_code}
-                    }).on('change', my_handlers.fill_barangays);
+                    });
                 },
 
 
@@ -64,8 +64,11 @@
             };
 
             $(function(){
+                $('#region').on('change', my_handlers.fill_provinces);
+                $('#province').on('change', my_handlers.fill_cities);
+                $('#city').on('change', my_handlers.fill_barangays);
+
                 $('#region').ph_locations({'location_type': 'regions'})
-                    .on('change', my_handlers.fill_provinces);
             });
         </script>
     </body>
