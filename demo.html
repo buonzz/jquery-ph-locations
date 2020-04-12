@@ -6,13 +6,47 @@
     <body>
         <h1>jQuery PH Locations Demo</h1>
         <div>
-            <select id="regions"></select>
+            <table>
+                <tr>
+                    <td>
+                        Regions
+                    </td>
+                    <td>
+                        <select id="region"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Provinces
+                    </td>
+                    <td>
+                        <select id="province"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Cities
+                    </td>
+                    <td>
+                        <select id="city"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Barangay
+                    </td>
+                    <td>
+                        <select id="barangay"></select>
+                    </td>
+                </tr>
+            </table>
+
         </div>
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
         <script type="text/javascript" src="jquery.ph-locations.js"></script>
         <script type="text/javascript">
             $(function(){
-                $('#regions').ph_locations({'location_type': 'regions'});
+                $('#region').ph_locations({'location_type': 'regions'});
             });
         </script>
     </body>

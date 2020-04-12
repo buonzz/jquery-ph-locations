@@ -36,7 +36,7 @@
 
                 $.ajax({
                     type: "GET",
-                    url: this.settings.api_base_url + '/v1/' +  this.settings.location_type,
+                    url: this.settings.api_base_url + 'v1/' +  this.settings.location_type,
                     success: this.onDataArrived.bind(this)
                 });
                 this.settings
@@ -52,7 +52,7 @@
 				for(var i=0; i<params.data.length;i++){
 					shtml += '<option value="' + params.data[i].id + '">';
 					shtml +=  params.data[i].name ;
-					shtml += '/<option>';
+					shtml += '</option>';
 				}
 
 				return shtml
