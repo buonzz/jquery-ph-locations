@@ -31,7 +31,14 @@
         <script type="text/javascript">
 
             function fill_provinces(){
-                $('#province').ph_locations({'location_type': 'provinces'}).change(fill_cities);
+
+                var region_code = $(this).val();
+                
+                $('#province').ph_locations({
+                    'location_type': 'provinces',
+                    'filter': {"region_code": region_code}
+                }).change(fill_cities);
+
             }
 
             function fill_cities(){
