@@ -37,8 +37,6 @@
 
 				this.settings.filter = filter;
 
-				console.log(filter);
-
 				$.ajax({
                     type: "GET",
                     url: this.settings.api_base_url + 'v1/' +  this.settings.location_type,
