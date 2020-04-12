@@ -49,17 +49,14 @@
 			},
 
 			map_parameters(){
+
 				var mapped_parameter = {"filters": {
 					"where": {}
 					} 
 				};
 
 				 for(var property in this.settings.filter)
-				 {
 				    mapped_parameter.filters.where[property] = this.settings.filter[property];
-				 }	
-
-				 console.log(mapped_parameter);
 
 				 return mapped_parameter;
 			},
