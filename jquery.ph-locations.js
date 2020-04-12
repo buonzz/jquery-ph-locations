@@ -39,13 +39,17 @@
                     type: "GET",
                     url: this.settings.api_base_url + 'v1/' +  this.settings.location_type,
 					success: this.onDataArrived.bind(this),
-					data: $.param(this.settings.filter)
+					data: $.param()
                 });
                 this.settings
 
             }, // fetch list
             onDataArrived(data){
 				$(this.element).html(this.build_options(data));
+			},
+
+			map_parameters(){
+				this.settings.filter
 			},
 
 			build_options(params){
