@@ -34,12 +34,12 @@
                 fill_provinces:  function(){
 
                     var region_code = $(this).val();
-                    
+                    console.log(region_code);
                     $('#province').ph_locations({
                         'location_type': 'provinces',
                         'filter': {"region_code": region_code}
                     });
-
+                    
                 },
 
                 fill_cities: function(){
