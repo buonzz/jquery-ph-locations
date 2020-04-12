@@ -29,10 +29,22 @@
         <script type="text/javascript" src="../jquery-3.4.1.min.js"></script>
         <script type="text/javascript" src="../jquery.ph-locations.js"></script>
         <script type="text/javascript">
+
+            function fill_provinces(){
+                $('#province').ph_locations({'location_type': 'provinces'}).change(fill_cities);
+            }
+
+            function fill_cities(){
+                $('#city').ph_locations({'location_type': 'cities'}).change(fill_barangays);
+            }
+
+            function fill_barangays(){
+                $('#barangay').ph_locations({'location_type': 'barangays'});
+            }
+
+
             $(function(){
-                $('#region').ph_locations({'location_type': 'regions'}).change(function(e){
-                    console.log($(this).val());
-                });
+                $('#region').ph_locations({'location_type': 'regions'}).change(fill_provinces);
             });
         </script>
     </body>
