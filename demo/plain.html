@@ -29,39 +29,43 @@
         <script type="text/javascript" src="../jquery-3.4.1.min.js"></script>
         <script type="text/javascript" src="../jquery.ph-locations.js"></script>
         <script type="text/javascript">
+            
+            var my_handlers = {
+                fill_provinces:  function(){
 
-            function fill_provinces(){
+                    var region_code = $(this).val();
+                    
+                    $('#province').ph_locations({
+                        'location_type': 'provinces',
+                        'filter': {"region_code": region_code}
+                    }).on('change', my_handlers.fill_cities);
 
-                var region_code = $(this).val();
-                
-                $('#province').ph_locations({
-                    'location_type': 'provinces',
-                    'filter': {"region_code": region_code}
-                }).change(fill_cities);
+                },
 
-            }
+                fill_cities: function(){
 
-            function fill_cities(){
+                    var province_code = $(this).val();
+                    
+                    $('#city').ph_locations({
+                        'location_type': 'cities',
+                        'filter': {"province_code": province_code}
+                    }).on('change', my_handlers.fill_barangays);
+                },
 
-                var province_code = $(this).val();
-                
-                $('#city').ph_locations({
-                    'location_type': 'cities',
-                    'filter': {"province_code": province_code}
-                }).change(fill_barangays);
-            }
 
-            function fill_barangays(){
-                var city_code = $(this).val();
-                
-                $('#barangay').ph_locations({
-                    'location_type': 'barangays',
-                    'filter': {"city_code": city_code}
-                });
-            }
+                fill_barangays: function(){
+                    var city_code = $(this).val();
+                    
+                    $('#barangay').ph_locations({
+                        'location_type': 'barangays',
+                        'filter': {"city_code": city_code}
+                    });
+                }
+            };
 
             $(function(){
-                $('#region').ph_locations({'location_type': 'regions'}).change(fill_provinces);
+                $('#region').ph_locations({'location_type': 'regions'})
+                    .on('change', my_handlers.fill_provinces);
             });
         </script>
     </body>
