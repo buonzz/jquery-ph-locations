@@ -66,11 +66,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                         Storing this amount of data just to display this kind of dropdown is too much of work and load for most applications.
                                         Not to mention, that you have the copy of this data in every database that needs this, there should be a better way of doing it...
                                         <br/>
-                                        Why Philippines only? why not a plugin that can list every possible location on earth?
-                                        <br/>
-                                        That would be a very generic project that its usefulness is very minimal, as each country might have their own way of classifying smaller towns and cities.
-                                        For example, "barangay" is something very specific to Philippines only. We also have our own way of classifying geographical locations as defined by 
-                                        <a href="https://psa.gov.ph/classification/psgc/" target="_blank">Philippine Standard Geographic Codes (PSGC)</a> which only makes sense in Philippines usage but not outside the country.
                                     </p>
 
                                     <h3>The Solution</h3>
@@ -85,8 +80,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                     <h3>Quick Demo</h3>
                                     <p>
                                         Here is a very simple demo of what the plugin can do. Below, you could see we have 4 dropdowns.
-                                        Each is being populated dynamically by the plugin, depending on the value of the dropdown above it
-                                        <img src="https://f001.backblazeb2.com/file/buonzz-assets/jquery-ph-locations-demo.gif"/>
+                                        Each is being populated dynamically by the plugin, depending on the value of the dropdown above it<br/>
+                                        <img alt="demo cascading dropdown" src="https://f001.backblazeb2.com/file/buonzz-assets/jquery-ph-locations-demo.gif"/>
                                         <ul>
                                             <li>Region is populated upon page load</li>
                                             <li>Province is populated depending on what is selected in Region</li>
@@ -95,9 +90,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                         </ul>
                                     </p>
                                     <div class="code-block" style="width: fit-content;">
-                                    <pre class=" language-javascript">
-<code class="language-javascript">
-    // attach handlers when user had selected an item in the dropdown   
+                                    <pre class=" language-javascript"><code class="language-javascript">// attach handlers when user had selected an item in the dropdown   
     $(&#x27;#region&#x27;).on(&#x27;change&#x27;, function(){ // fill province dropdown });
     $(&#x27;#province&#x27;).on(&#x27;change&#x27;, function(){ // fill cities dropdown });
     $(&#x27;#city&#x27;).on(&#x27;change&#x27;, function(){ // fill barangay dropdown });
@@ -109,9 +102,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     $(&#x27;#barangay&#x27;).ph_locations({&#x27;location_type&#x27;: &#x27;barangays&#x27;});
     
     // fill up the regions dropdown, so user can start &#x22;drilling down&#x22;
-    $(&#x27;#region&#x27;).ph_locations(&#x27;fetch_list&#x27;);
-</code>
-                                    </pre>
+    $(&#x27;#region&#x27;).ph_locations(&#x27;fetch_list&#x27;);</code></pre>
                                     </div>
                                     <p>
                                     Note that this plugin doesn't requires you to install any backend script in your app.
@@ -123,9 +114,88 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             </section><!--//doc-section-->
                             <section id="installation-section" class="doc-section">
                                 <h2 class="section-title">Installation</h2>
-                            </section><!--//doc-section-->
-                            
+                                <div class="section-block">
+                                    install it by putting this in your HTML code (head or right before footer)
+                                    <div class="code-block" style="width: fit-content;">
+                                        <pre class=" language-javascript"><code class="language-javascript">&#x3C;script src=&#x22;https://f001.backblazeb2.com/file/buonzz-assets/jquery.ph-locations-v1.0.0.js&#x22;&#x3E;&#x3C;/script&#x3E;</code></pre>                               
+                                    </div>
+                                    or upload the <code>jquery.ph-locations-v1.0.0.js</code> somewhere in your server and reference it.
 
+    </div><!-- section block -->
+                            </section><!--//doc-section-->
+     
+                            
+                            <section id="usage-section" class="doc-section">
+                                <h2 class="section-title">Usage</h2>
+                                <div class="section-block">
+                                <p>create the markup</p>
+                                <div class="code-block" style="width: fit-content;">
+                                    <pre class=" language-javascript">
+<code class="language-javascript">&#x3C;select name=&#x22;city&#x22; id=&#x22;my-city-dropdown&#x22;&#x3E;&#x3C;/select&#x3E;</code></pre>                               
+                                </div>
+                               initialize the control 
+                               <div class="code-block" style="width: fit-content;">
+                                <pre class=" language-javascript">
+<code class="language-javascript">$(&#x27;#my-city-dropdown&#x27;).ph_locations({&#x27;location_type&#x27;: &#x27;cities&#x27;});</code></pre>    
+                                </div> 
+                                populate the dropdown with items (and optionally pass any filter)                           
+                                <div class="code-block" style="width: fit-content;">
+                                    <pre class=" language-javascript">
+<code class="language-javascript">$(&#x27;#my-city-dropdown&#x27;).ph_locations( &#x27;fetch_list&#x27;, [{&#x22;province_code&#x22;: &#x22;1339&#x22;}]);</code>
+</pre>    
+</div>
+see more below about the codes assigned for each location.
+<br/>
+<br/>
+<h5>Configuration</h5>
+When initializing the plugin, you need to pass the <b>location_type</b> setting so that it knows what kind of data you are trying to display (region, province, city, barangay). The possible values are:
+
+<ul>
+    <li><b>regions</b> - this dropdown will gonna be filled with list of region</li>
+    <li><b>provinces</b> - this dropdown will gonna be filled with list of province</li>
+    <li><b>cities</b> - this dropdown will gonna be filled with list of cities</li>
+    <li><b>barangays</b> - this dropdown will gonna be filled with list of barangay</li>
+</ul>
+
+
+in order to populate the dropdown with items, you need to call the <b>fetch_list</b> function by the plugin. The fetch_list function can accept <b>filters</b> that allows you to limit the number of items to show. For example, the dropdown above will list only show cities that is under Manila City, represented by province_code 1339. The 1339 value is the assigned code by  <a href="https://psa.gov.ph/classification/psgc/" target="_blank">Philippine Standard Geographic Codes (PSGC)</a>
+</div><!-- section block-->
+                            </section>                                
+
+                            <section id="about-section" class="doc-section">
+                                <h2 class="section-title">About</h2>
+                                <div class="section-block">
+                                    Why Philippines only? why not a plugin that can list every possible location on earth?
+                                    <br/>
+                                    That would be a very generic project that its usefulness is very minimal, as each country might have their own way of classifying smaller towns and cities.
+                                    For example, "barangay" is something very specific to Philippines only. We also have our own way of classifying geographical locations as defined by 
+                                    <a href="https://psa.gov.ph/classification/psgc/" target="_blank">Philippine Standard Geographic Codes (PSGC)</a> which only makes sense in Philippines usage but not outside the country.
+                                </div>
+                            </section>                                
+
+                            <section id="sponsor-section" class="doc-section">
+                                <h2 class="section-title">Sponsor / Donate</h2>
+                                <div class="section-block">
+                                        <p>
+                                            You can show your support and appreciation by
+                                            <a href="https://www.buymeacoffee.com/kt7vrlS6F">Buying me a coffee</a> (I love coffee!).
+                                        </p>
+                                </div>
+                                </section>
+                            </section>                                
+
+                            <section id="credits-section" class="doc-section">
+                                <h2 class="section-title">Credits</h2>
+                                <div class="section-block">
+                                    <ul>
+                                        <li><a href="https://github.com/clavearnel/philippines-region-province-citymun-brgy" target="_blank">clavearnel
+                                            /
+                                            philippines-region-province-citymun-brgy</a> for the JSON data that I've used to create the REST API</li>
+                                         <li><a href="http://www.nscb.gov.ph/" target="_blank">National Statistical Coordination Board</a> for the updated version of locations</li>   
+
+                                        </ul>
+                                </div>
+                            </section>                                
                         </div><!--//content-inner-->
                     </div><!--//doc-content-->
                     <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
@@ -133,9 +203,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	                            <nav id="doc-menu" class="nav doc-menu flex-column sticky">
 	                                <a class="nav-link scrollto" href="#overview-section">Overview</a>
 	                                <a class="nav-link scrollto" href="#installation-section">Installation</a>
-	                                <a class="nav-link scrollto" href="#code-section">Usage</a>
+	                                <a class="nav-link scrollto" href="#usage-section">Usage</a>
                                     <nav class="doc-sub-menu nav flex-column">
-                                        <a class="nav-link scrollto" href="#html">Plain HTML</a>
+                                        <a class="nav-link scrollto" href="#plain">Plain HTML</a>
                                     </nav><!--//nav-->
 	                                <a class="nav-link scrollto" href="#about-section">About</a>
                                     <a class="nav-link scrollto" href="#sponsor-section">Sponsor / Donate</a>
