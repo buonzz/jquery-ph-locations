@@ -56,15 +56,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 <h2 class="section-title">Overview</h2>
                                 <div class="section-block">
                                     <p> 
-                                        If you are developing a web application or website that requires user to provide an location (address of their house, business, establishment etc) for visitors in Philippines,
+                                        If you are developing a web application or website that requires user to provide a location (address of their house, business, establishment etc) for visitors in Philippines,
                                         It might be useful for them to select from a list of Cities or Barangay instead of typing everything in a text field.
                                     </p>
 
                                     <h3>The Problem</h3>
                                     <p>
-                                        There is around approximately 42,000 plus baranggays in the Philippines. Let alone the list of cities.
-                                        Storing this amount of data just to display this kind of dropdown is too much of work and load for most applications.
-                                        Not to mention, that you have the copy of this data in every database that needs this, there should be a better way of doing it...
+                                        There is around approximately 42,000 plus barangays in the Philippines. Let alone the list of cities.
+                                        Storing this amount of data just to display this kind of dropdown is too much of hassle and load for most applications.
+                                        Not to mention, that you need to have the copy of this data in every database that needs this, there should be a better way of doing it...
                                         <br/>
                                     </p>
 
@@ -82,12 +82,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                         Here is a very simple demo of what the plugin can do. Below, you could see we have 4 dropdowns.
                                         Each is being populated dynamically by the plugin, depending on the value of the dropdown above it<br/>
                                         <img alt="demo cascading dropdown" src="https://f001.backblazeb2.com/file/buonzz-assets/jquery-ph-locations-demo.gif"/>
+
+                                        <a href="https://www.darwinbiler.com/jquery-ph-locations/demo/plain.html" target="_blank">See LIVE DEMO</a>
                                         <ul>
                                             <li>Region is populated upon page load</li>
                                             <li>Province is populated depending on what is selected in Region</li>
                                             <li>City is populated depending on what is selected in Province</li>
                                             <li>Barangay is populated depending on what is selected in City</li>
                                         </ul>
+
+
                                     </p>
                                     <div class="code-block" style="width: fit-content;">
                                     <pre class=" language-javascript"><code class="language-javascript">// attach handlers when user had selected an item in the dropdown   
@@ -108,7 +112,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                     Note that this plugin doesn't requires you to install any backend script in your app.
                                     You can use it in any static website that have jQuery.
 
-                                    Interested? head over to the <a href="#">Installation</a> to start using it!
+                                    Interested? head over to the <a href="#installation-section">Installation</a> to start using it!
                                     </p>
                                 </div>
                             </section><!--//doc-section-->
@@ -119,7 +123,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                     <div class="code-block" style="width: fit-content;">
                                         <pre class=" language-javascript"><code class="language-javascript">&#x3C;script src=&#x22;https://f001.backblazeb2.com/file/buonzz-assets/jquery.ph-locations-v1.0.0.js&#x22;&#x3E;&#x3C;/script&#x3E;</code></pre>                               
                                     </div>
-                                    or upload the <code>jquery.ph-locations-v1.0.0.js</code> somewhere in your server and reference it.
+                                    or save the copy of the file above and upload the <code>jquery.ph-locations-v1.0.0.js</code> somewhere in your server and reference it.
 
     </div><!-- section block -->
                             </section><!--//doc-section-->
@@ -159,6 +163,8 @@ When initializing the plugin, you need to pass the <b>location_type</b> setting 
 
 
 in order to populate the dropdown with items, you need to call the <b>fetch_list</b> function by the plugin. The fetch_list function can accept <b>filters</b> that allows you to limit the number of items to show. For example, the dropdown above will list only show cities that is under Manila City, represented by province_code 1339. The 1339 value is the assigned code by  <a href="https://psa.gov.ph/classification/psgc/" target="_blank">Philippine Standard Geographic Codes (PSGC)</a>
+
+<p>You can also check the <a href="https://github.com/buonzz/jquery-ph-locations/blob/master/docs/demo/plain.html" target="_blank">source code</a> of the  <a href="http://www.darwinbiler.com/jquery-ph-locations/demo/plain.html" target="_blank">demo</a> to see how it is used.</p>
 </div><!-- section block-->
                             </section>                                
 
@@ -178,8 +184,10 @@ in order to populate the dropdown with items, you need to call the <b>fetch_list
                                 <div class="section-block">
                                         <p>
                                             You can show your support and appreciation by
-                                            <a href="https://www.buymeacoffee.com/kt7vrlS6F">Buying me a coffee</a> (I love coffee!).
+                                            <a href="https://www.buymeacoffee.com/kt7vrlS6F" target="_blank">Buying me a coffee</a> (I love coffee!).
                                         </p>
+                                        <h3>Contribute</h3>
+                                        <p>The project is open-source and can be found in this <a href="https://github.com/buonzz/jquery-ph-locations" target="_blank">GitHub repo</a>. If you happen to find any bug or improvements that could be made to better cater to your project, feel free to <a href="https://github.com/buonzz/jquery-ph-locations/issues/new" target="_blank">open an issue</a> </p>
                                 </div>
                                 </section>
                             </section>                                
