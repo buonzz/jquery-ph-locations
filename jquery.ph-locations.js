@@ -14,7 +14,7 @@
 		var pluginName = "ph_locations",
 			defaults = {
                 location_type : "city", // what data this control supposed to display? regions, provinces, cities or barangays?,
-				api_base_url: 'https://damp-castle-15651.herokuapp.com/',
+				api_base_url: 'https://ph-locations-api.buonzz.com/',
 				filter: {}
             };
 
