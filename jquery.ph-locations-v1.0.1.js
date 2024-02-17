@@ -14,7 +14,7 @@
 		var pluginName = "ph_locations",
 			defaults = {
                 location_type : "city", // what data this control supposed to display? regions, provinces, cities or barangays?,
-				api_base_url: 'https://ph-locations-api.buonzz.com/',
+				api_base_url: 'https://fk350plrl6.execute-api.us-east-1.amazonaws.com/',
 				order: "name asc",
 				filter: {}
             };
@@ -40,7 +40,7 @@
 
 				$.ajax({
                     type: "GET",
-                    url: this.settings.api_base_url + 'v1/' +  this.settings.location_type,
+                    url: this.settings.api_base_url  +  this.settings.location_type,
 					success: this.onDataArrived.bind(this),
 					data: $.param(this.map_parameters())
                 });
