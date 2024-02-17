@@ -14,7 +14,7 @@
 		var pluginName = "ph_locations",
 			defaults = {
                 location_type : "city", // what data this control supposed to display? regions, provinces, cities or barangays?,
-				api_base_url: 'https://fk350plrl6.execute-api.us-east-1.amazonaws.com/',
+				api_base_url: 'https://fk350plrl6.execute-api.us-east-1.amazonaws.com/prod/',
 				order: "name asc",
 				filter: {},
                 default_values : {
