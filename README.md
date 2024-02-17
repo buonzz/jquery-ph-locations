@@ -17,9 +17,9 @@ jQuery Plugin for displaying dropdown list of Philippines' Region, Province, Cit
 1. install it by putting this in your HTML code (head or right before footer)
 
 ```
-<script src="https://f001.backblazeb2.com/file/buonzz-assets/jquery.ph-locations-v1.0.0.js"></script>
+<script src="https://f001.backblazeb2.com/file/buonzz-assets/jquery.ph-locations-v1.0.2.js"></script>
 ```
-or upload the jquery.ph-locations-v1.0.0.js somewhere in your server and reference it.
+or upload the jquery.ph-locations-v1.0.2.js somewhere in your server and reference it.
 
 2. create the markup
 ```
@@ -37,7 +37,13 @@ the **location_type** is the only required parameter to initialize the plugin.
 ```
 $('#my-city-dropdown').ph_locations( 'fetch_list', [{"province_code": "1339"}]);
 ```
-see more below about the codes assigned for each location.
+
+### Getting the selected psgc code 
+
+Prior to version v1.0.2, the returned value of ` $('#yourid').val()` returns the PSGC code of that location. Due to popular demand, this now returns the name of the location itself. So in order to retrieve the PSGC code, you need to do this:
+```
+ $( "#yourid option:selected").data('psgc-code'); // returns the PSGC code
+```
 
 ## Configuration 
 
