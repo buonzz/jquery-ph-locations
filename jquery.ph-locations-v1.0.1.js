@@ -16,7 +16,8 @@
                 location_type : "city", // what data this control supposed to display? regions, provinces, cities or barangays?,
 				api_base_url: 'https://fk350plrl6.execute-api.us-east-1.amazonaws.com/',
 				order: "name asc",
-				filter: {}
+				filter: {},
+				api_key: "knffxw2q0x13ty4KImwlDaX6yNOv4aXftqdbe8vi"
             };
 
 		// plugin constructor
@@ -41,6 +42,9 @@
 				$.ajax({
                     type: "GET",
                     url: this.settings.api_base_url  +  this.settings.location_type,
+					crossDomain: true,
+                    dataType: 'json',
+                    headers: {"x-api-key": this.settings.api_key},
 					success: this.onDataArrived.bind(this),
 					data: $.param(this.map_parameters())
                 });

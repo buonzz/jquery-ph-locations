@@ -23,7 +23,8 @@
                     "cities": "Select City",
                     "barangays" : "Select Baranggay"
                 },
-                use_psgc_as_value : false
+                use_psgc_as_value : false,
+                api_key: "knffxw2q0x13ty4KImwlDaX6yNOv4aXftqdbe8vi"
             };
 
 		// plugin constructor
@@ -49,7 +50,10 @@
 
 				$.ajax({
                     type: "GET",
-                    url: this.settings.api_base_url + 'v1/' +  this.settings.location_type,
+                    url: this.settings.api_base_url +  this.settings.location_type,
+                    crossDomain: true,
+                    dataType: 'json',
+                    headers: {"x-api-key": this.settings.api_key},
 					success: this.onDataArrived.bind(this),
 					data: $.param(this.map_parameters())
                 });
