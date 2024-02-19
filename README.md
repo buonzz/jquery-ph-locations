@@ -64,10 +64,10 @@ check the demo folder that comes with it for usage examples, like cascading drop
 ### Paid API Key
 
 
-By default, the plugin includes a "free api key" for general use. It is usable but have limits of 5000 calls per day across all free users of the free plugin.
-Once the 5000 calls per day is exhausted, the api will start returning error ( and plugin will not work).
-The Free API key is generally okay to use for demos and one-time projects. 
-But for commerial use cases and you need to ensure the plugin is working in your app 100% of the time, you need to have your OWN API key.
+By default, the plugin includes a "free api key" for general use. It is usable but have limits of 5000 calls per day across all free users of the free plugin.<br/>
+Once the 5000 calls per day is exhausted, the api will start returning error ( and plugin will not work).<br/>
+The Free API key is generally okay to use for demos and one-time projects. <br/>
+But for commerial use cases and you need to ensure the plugin is working in your app 100% of the time, you need to have your OWN API key.<br/>
 
 What comes with the Paid API key?
 * Quota: 10000 requests per day
@@ -75,4 +75,6 @@ What comes with the Paid API key?
 * Priority Support
 
 [Subscribe Now](https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-4Y013985K3353770LMXJXGTQ)
+
+After purchase, we will send you an email containing your API Key, please send an email to darwin@bilersolutions.com to follow up for your API Key.
 
