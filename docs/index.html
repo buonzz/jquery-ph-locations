@@ -189,8 +189,48 @@ in order to populate the dropdown with items, you need to call the <b>fetch_list
                                         <h3>Contribute</h3>
                                         <p>The project is open-source and can be found in this <a href="https://github.com/buonzz/jquery-ph-locations" target="_blank">GitHub repo</a>. If you happen to find any bug or improvements that could be made to better cater to your project, feel free to <a href="https://github.com/buonzz/jquery-ph-locations/issues/new" target="_blank">open an issue</a> </p>
                                 </div>
-                                </section>
-                            </section>                                
+                            </section>
+                            
+                            <section id="paid-apikey-section" class="doc-section">
+                                <h2 class="section-title">Paid API Key</h2>
+                                <div class="section-block">
+                                        <p>
+                                            By default, the plugin includes a "free api key" for general use. It is usable but have limits of 5000 calls per day across all free users of the free plugin.
+                                            Once the 5000 calls per day is exhausted, the api will start returning error ( and plugin will not work).<br/>
+                                            The Free API key is generally okay to use for demos and one-time projects. <br/>
+                                            But for commerial use cases and you need to ensure the plugin is working in your app 100% of the time, you need to have your OWN API key.
+
+                                            <br/>What comes with the Paid API key?
+                                            <ul>
+                                                <li>Quota: 10000 requests per day</li>
+                                                <li>Rate: 500 requests per second</li>
+                                                <li>Priority Support</li>
+                                            </ul>
+                                        </p>
+
+                                        <div id="paypal-button-container-P-4Y013985K3353770LMXJXGTQ"></div>
+                                        <script src="https://www.paypal.com/sdk/js?client-id=ARcHmROqvsqCx2XEXG7CgZshKtYmhoSdCTUU72sCS2RkeAtM7kD7HgAU7MWDyJr2-T6yjwu5hv9_DWVZ&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+                                        <script>
+                                        paypal.Buttons({
+                                            style: {
+                                                shape: 'pill',
+                                                color: 'white',
+                                                layout: 'horizontal',
+                                                label: 'subscribe'
+                                            },
+                                            createSubscription: function(data, actions) {
+                                                return actions.subscription.create({
+                                                /* Creates the subscription */
+                                                plan_id: 'P-4Y013985K3353770LMXJXGTQ'
+                                                });
+                                            },
+                                            onApprove: function(data, actions) {
+                                                alert(data.subscriptionID); // You can add optional success message for the subscriber here
+                                            }
+                                        }).render('#paypal-button-container-P-4Y013985K3353770LMXJXGTQ'); // Renders the PayPal button
+                                        </script>
+                                </div>
+                            </section>
 
                             <section id="credits-section" class="doc-section">
                                 <h2 class="section-title">Credits</h2>
@@ -216,6 +256,7 @@ in order to populate the dropdown with items, you need to call the <b>fetch_list
                                         <a class="nav-link scrollto" href="#plain">Plain HTML</a>
                                     </nav><!--//nav-->
 	                                <a class="nav-link scrollto" href="#about-section">About</a>
+                                    <a class="nav-link scrollto" href="#paid-apikey-section">Paid API Key</a>
                                     <a class="nav-link scrollto" href="#sponsor-section">Sponsor / Donate</a>
                                     <a class="nav-link scrollto" href="#credits-section">Credits</a>                                    
                                 </nav><!--//doc-menu-->
