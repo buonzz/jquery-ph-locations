@@ -1,5 +1,5 @@
 /*
- *  jquery-ph-locations - v1.0.2
+ *  jquery-ph-locations - v1.0.3
  *  jQuery Plugin for displaying dropdown list of Philippines' Region, Province, City and Barangay in your webpage.
  *  https://github.com/buonzz/jquery-ph-locations
  *
@@ -24,7 +24,8 @@
                     "barangays" : "Select Baranggay"
                 },
                 use_psgc_as_value : false,
-                api_key: "knffxw2q0x13ty4KImwlDaX6yNOv4aXftqdbe8vi"
+                api_key: "knffxw2q0x13ty4KImwlDaX6yNOv4aXftqdbe8vi",
+				selected_value: ''
             };
 
 		// plugin constructor
@@ -44,9 +45,12 @@
 				return this
             },
 
-			fetch_list: function (filter) {
+			fetch_list: function (filter, selected_value) {
 
 				this.settings.filter = filter;
+				this.settings.selected_value = selected_value;
+
+				console.log(filter);
 
 				$.ajax({
                     type: "GET",
@@ -85,19 +89,25 @@
                 shtml +=  this.settings.default_values[this.settings.location_type];
                 shtml += '</option>';
 
-
 				for(var i=0; i<params.data.length;i++){
 
-                    if(this.settings.use_psgc_as_value)
-    					shtml += '<option value="' + params.data[i].id + '" data-psgc-code=' +  params.data[i].id + '>';
-                    else
-    					shtml += '<option value="' + params.data[i].name + '" data-psgc-code=' +  params.data[i].id + '>';
-
+                    if(this.settings.use_psgc_as_value){
+    					shtml += '<option value="' + params.data[i].id + '" data-psgc-code=' +  params.data[i].id; 
+						if(this.settings.selected_value ==  params.data[i].id)
+							shtml += ' selected="selected" ';
+						shtml += '>';
+					}
+                    else { 
+    					shtml += '<option value="' + params.data[i].name + '" data-psgc-code=' +  params.data[i].id; 
+						if(this.settings.selected_value ==  params.data[i].name)
+							shtml += ' selected="selected" ';
+						shtml += '>';
+					}
 					shtml +=  params.data[i].name ;
 					shtml += '</option>';
 				}
 
-				return shtml
+				return shtml;
 			},
             onChange(e){
                 var val = $( "option:selected" , this.element).data('psgc-code');
