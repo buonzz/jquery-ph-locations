@@ -45,6 +45,12 @@ Prior to version v1.0.2, the returned value of ` $('#yourid').val()` returns the
  $( "#yourid option:selected").data('psgc-code'); // returns the PSGC code
 ```
 
+### Setting the default selected value
+pass the "selected_value" in the option
+```
+ $('#region').ph_locations('fetch_list', [{"selected_value" : "REGION I (ILOCOS REGION)"}]);
+```
+
 ## Configuration 
 
 When initializing the plugin, you need to pass the location_type setting so that it knows what kind of data you are trying to display (region, province, city, barangay). The possible values are:

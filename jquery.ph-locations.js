@@ -45,12 +45,12 @@
 				return this
             },
 
-			fetch_list: function (filter, selected_value) {
+			fetch_list: function (options) {
 
-				this.settings.filter = filter;
-				this.settings.selected_value = selected_value;
-
-				console.log(filter);
+				if(options.filter != undefined)
+					this.settings.filter = options.filter;
+				if(options.selected_value != undefined)
+					this.settings.selected_value = options.selected_value;
 
 				$.ajax({
                     type: "GET",
