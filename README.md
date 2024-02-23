@@ -17,9 +17,9 @@ jQuery Plugin for displaying dropdown list of Philippines' Region, Province, Cit
 1. install it by putting this in your HTML code (head or right before footer)
 
 ```
-<script src="https://f001.backblazeb2.com/file/buonzz-assets/jquery.ph-locations-v1.0.2.js"></script>
+<script src="https://f001.backblazeb2.com/file/buonzz-assets/jquery.ph-locations-v1.0.3.js"></script>
 ```
-or upload the jquery.ph-locations-v1.0.2.js somewhere in your server and reference it.
+or upload the jquery.ph-locations-v1.0.3.js somewhere in your server and reference it.
 
 2. create the markup
 ```
