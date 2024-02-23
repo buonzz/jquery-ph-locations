@@ -46,7 +46,7 @@ Prior to version v1.0.2, the returned value of ` $('#yourid').val()` returns the
 ```
 
 ### Setting the default selected value
-pass the "selected_value" in the option
+pass the "selected_value" in the option (introduced in v1.0.3)
 ```
  $('#region').ph_locations('fetch_list', [{"selected_value" : "REGION I (ILOCOS REGION)"}]);
 ```
