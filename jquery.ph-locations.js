@@ -21,7 +21,7 @@
                     "regions": "Select Region",
                     "provinces": "Select Province",
                     "cities": "Select City",
-                    "barangays" : "Select Baranggay"
+                    "barangays" : "Select Barangay"
                 },
                 use_psgc_as_value : false,
                 api_key: "knffxw2q0x13ty4KImwlDaX6yNOv4aXftqdbe8vi",

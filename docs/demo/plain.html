@@ -44,6 +44,18 @@
                             }
                         }
                     ]);
+
+                    // if this is NCR, fill the cities directly
+                    if(region_code == 13){
+                        $('#city').ph_locations('fetch_list', [
+                            { 
+                                "filter": {
+                                    "region_code": region_code
+                                }
+                            }
+                        ]);
+                    }
+                    
                     
                 },
 
