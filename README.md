@@ -35,7 +35,13 @@ the **location_type** is the only required parameter to initialize the plugin.
 4. populate the dropdown with items (and optionally pass any filter)
 
 ```
-$('#my-city-dropdown').ph_locations( 'fetch_list', [{"province_code": "1339"}]);
+$('#my-city-dropdown').ph_locations( 'fetch_list', [
+                        { 
+                            "filter": {
+                                "province_code": 1339
+                            }
+                        }
+                    ]);
 ```
 
 ### Getting the selected psgc code 
@@ -48,7 +54,7 @@ Prior to version v1.0.2, the returned value of ` $('#yourid').val()` returns the
 ### Setting the default selected value
 pass the "selected_value" in the option (introduced in v1.0.3)
 ```
- $('#region').ph_locations('fetch_list', [{"selected_value" : "REGION I (ILOCOS REGION)"}]);
+$('#region').ph_locations('fetch_list', [{'location_type': 'regions', "selected_value" : "REGION I (ILOCOS REGION)"}]);
 ```
 
 ## Configuration 
