@@ -113,7 +113,38 @@
                 var val = $( "option:selected" , this.element).data('psgc-code');
                 $(this.element).data('selected-psgc-code', val);
 			},
+			select2: function(options){
 
+				var api_url = this.settings.api_base_url +  this.settings.location_type
+				var api_key = this.settings.api_key;
+				var region_code = '';
+				var province_code = '';
+				var city_code = '';
+
+				if(options.region_code != undefined)
+					region_code = options.region_code;
+				
+				if(options.province_code != undefined)
+					province_code = options.province_code;
+				
+				if(options.city_code != undefined)
+					city_code = options.city_code;
+
+				$('#barangay').select2({
+                    ajax: {
+                        url:  api_url + '/select2',
+                        dataType: 'json',
+                        data: function (params) {
+                            params.api_key =  api_key;
+							params.region_code = region_code;
+                            params.province_code = province_code;
+                            params.city_code = city_code;
+                            return params;
+                        }
+                    },
+                    dropdownAutoWidth : true
+                });
+			}
 		} );
 
 
