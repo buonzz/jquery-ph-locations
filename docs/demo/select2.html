@@ -12,7 +12,6 @@
         <main class="flex-shrink-0">
             <div class="container">
               <h1 class="mt-5">jQuery PH Locations Demo - Select2</h1>
-              <p class="lead">Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p>
               <p> Barangay 
                 <select id="barangay">
                     <option>Select Barangay</option>
@@ -25,24 +24,20 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-        <script type="text/javascript" src="../../jquery.ph-locations.js"></script>
-        <!-- script type="text/javascript" src="https://f001.backblazeb2.com/file/buonzz-assets/jquery.ph-locations.js"></script -->
+        <!-- script type="text/javascript" src="../../jquery.ph-locations.js"></script -->
+        <script type="text/javascript" src="https://f001.backblazeb2.com/file/buonzz-assets/jquery.ph-locations.js"></script>
         <script type="text/javascript">
             
             $(document).ready(function() {
-                $('#barangay').select2({
-                    ajax: {
-                        url: 'http://localhost:3333/v1/barangays/select2',
-                        dataType: 'json',
-                        data: function (params) {
-                            params.api_key =  "knffxw2q0x13ty4KImwlDaX6yNOv4aXftqdbe8vi";
-                            params.province_code = '034';
-                            params.city_code = '16';
-                            return params;
-                        }
-                    },
-                    dropdownAutoWidth : true
-                });
+
+                $('#barangay').ph_locations('select2', [
+                    { 
+                        "location_type": "barangays",
+                        "province_code": '034',
+                        "city_code": '16'
+                    }
+                ]);
+
             });
 
         </script>

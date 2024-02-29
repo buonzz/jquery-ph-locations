@@ -1,5 +1,5 @@
 /*
- *  jquery-ph-locations - v1.0.3
+ *  jquery-ph-locations - v1.0.4
  *  jQuery Plugin for displaying dropdown list of Philippines' Region, Province, City and Barangay in your webpage.
  *  https://github.com/buonzz/jquery-ph-locations
  *
