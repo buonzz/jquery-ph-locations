@@ -124,6 +124,7 @@
 				var region_code = '';
 				var province_code = '';
 				var city_code = '';
+				var selected_value = options.selected_value != undefined ? options.selected_value : '';
 
 				if(options.region_code != undefined)
 					region_code = options.region_code;
@@ -134,7 +135,18 @@
 				if(options.city_code != undefined)
 					city_code = options.city_code;
 
-				$('#barangay').select2({
+
+				// add default value
+				var shtml = "";
+				shtml += '<option value="" disabled="disabled">';
+				shtml +=  this.settings.default_values[this.settings.location_type];
+				shtml += '</option>';
+				$(this.element).html(shtml);
+
+				// set default selected
+				$(this.element).append(new Option(selected_value, selected_value, true, false)).trigger('change');
+
+				$(this.element).select2({
                     ajax: {
                         url:  api_url + '/select2',
                         dataType: 'json',

@@ -16,7 +16,6 @@
               <div class="mb-3">
                 <label class="form-label">Region</label>
                 <select id="region" class="form-control">
-                    <option>Select Region</option>
                 </select>
               </div>
 
@@ -88,8 +87,8 @@
                     $('#barangay').ph_locations('select2', [
                         { 
                             "location_type": "barangays",
-                            "province_code": '034',
-                            "city_code": '16'
+                            "province_code": province_code,
+                            "city_code": city_code
                         }
                     ]);
 
@@ -98,7 +97,9 @@
             
             $(document).ready(function() {
 
-                $('#region').ph_locations('fetch_list', [{'location_type': 'regions', "selected_value" : "REGION I (ILOCOS REGION)"}]);
+                $('#region').ph_locations('select2', [
+                    {'location_type': 'regions', "selected_value" : "National Capital Region (NCR)"}
+                ]);
 
             });
 
