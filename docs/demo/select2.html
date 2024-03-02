@@ -22,21 +22,18 @@
               <div class="mb-3">
                 <label class="form-label">Province</label>
                 <select id="province" class="form-control">
-                    <option>Select Province</option>
                 </select>
               </div>
 
               <div class="mb-3">
                 <label class="form-label">City</label>
                 <select id="city"  class="form-control">
-                    <option>Select City</option>
                 </select>
               </div>
 
               <div class="mb-3">
                 <label class="form-label">Barangay</label>
                 <select id="barangay" class="form-control">
-                    <option>Select Barangay</option>
                 </select>
               </div>
 
@@ -97,9 +94,13 @@
             
             $(document).ready(function() {
 
+                $('#region').on('change', my_handlers.fill_provinces);
+                $('#province').on('change', my_handlers.fill_cities);
+                $('#city').on('change', my_handlers.fill_barangays);
+
                 $('#region').ph_locations('select2', [
                     {'location_type': 'regions', "selected_value" : "National Capital Region (NCR)"}
-                ]);
+                ]).trigger('change');
 
             });
 

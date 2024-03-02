@@ -156,9 +156,16 @@
                             params.province_code = province_code;
                             params.city_code = city_code;
                             return params;
-                        }
+                        },
+						results: function (data) {
+							return data;
+						}
                     },
-                    dropdownAutoWidth : true
+                    dropdownAutoWidth : true,
+					templateSelection: function(container) {
+						$(container.element).attr("data-pgsc-code", container.pgsc_code);
+						return container.text;
+					}
                 });
 			}
 		} );
