@@ -49,6 +49,8 @@
 
 				if(options.filter != undefined)
 					this.settings.filter = options.filter;
+				if(options.location_type != undefined)
+					this.settings.location_type = options.location_type;
 				if(options.selected_value != undefined)
 					this.settings.selected_value = options.selected_value;
 

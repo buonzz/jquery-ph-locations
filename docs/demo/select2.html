@@ -12,11 +12,35 @@
         <main class="flex-shrink-0">
             <div class="container">
               <h1 class="mt-5">jQuery PH Locations Demo - Select2</h1>
-              <p> Barangay 
-                <select id="barangay">
+
+              <div class="mb-3">
+                <label class="form-label">Region</label>
+                <select id="region" class="form-control">
+                    <option>Select Region</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Province</label>
+                <select id="province" class="form-control">
+                    <option>Select Province</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">City</label>
+                <select id="city"  class="form-control">
+                    <option>Select City</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Barangay</label>
+                <select id="barangay" class="form-control">
                     <option>Select Barangay</option>
                 </select>
-             </p>
+              </div>
+
             </div>
           </main>
         
@@ -24,19 +48,57 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-        <!-- script type="text/javascript" src="../../jquery.ph-locations.js"></script -->
-        <script type="text/javascript" src="https://f001.backblazeb2.com/file/buonzz-assets/jquery.ph-locations.js"></script>
+        <script type="text/javascript" src="../../jquery.ph-locations.js"></script>
+        <!-- script type="text/javascript" src="https://f001.backblazeb2.com/file/buonzz-assets/jquery.ph-locations.js"></script -->
         <script type="text/javascript">
+
+            var my_handlers = {
+
+                fill_provinces:  function(){
+
+                    var region_code = $( "option:selected" , this).data('psgc-code');
+                    
+                    $('#province').ph_locations('select2', [
+                        { 
+                            "location_type": "provinces",
+                            "region_code": region_code
+                        }
+                    ]);                    
+                    
+                },
+
+                fill_cities: function(){
+
+                    var province_code = $( "option:selected" , this).data('psgc-code');
+
+                    $('#city').ph_locations('select2', [
+                        { 
+                            "location_type": "cities",
+                            "province_code": province_code
+                        }
+                    ]);
+                },
+
+
+                fill_barangays: function(){
+
+                    var city_code = $( "option:selected" , this).data('psgc-code');
+                    var province_code = $( "#province option:selected").data('psgc-code');
+
+                    $('#barangay').ph_locations('select2', [
+                        { 
+                            "location_type": "barangays",
+                            "province_code": '034',
+                            "city_code": '16'
+                        }
+                    ]);
+
+                }
+            };
             
             $(document).ready(function() {
 
-                $('#barangay').ph_locations('select2', [
-                    { 
-                        "location_type": "barangays",
-                        "province_code": '034',
-                        "city_code": '16'
-                    }
-                ]);
+                $('#region').ph_locations('fetch_list', [{'location_type': 'regions', "selected_value" : "REGION I (ILOCOS REGION)"}]);
 
             });
 
