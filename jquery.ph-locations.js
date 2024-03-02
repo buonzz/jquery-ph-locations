@@ -144,8 +144,9 @@
 				$(this.element).html(shtml);
 
 				// set default selected
-				$(this.element).append(new Option(selected_value, selected_value, true, false)).trigger('change');
+				//$(this.element).append(new Option(selected_value, selected_value, true, false)).trigger('change');
 
+				var location_type = this.settings.location_type
 				$(this.element).select2({
                     ajax: {
                         url:  api_url + '/select2',
@@ -155,6 +156,16 @@
 							params.region_code = region_code;
                             params.province_code = province_code;
                             params.city_code = city_code;
+
+							if(location_type == 'regions')
+								params.id_field= 'region_code';
+							else if (location_type == 'provinces')
+								params.id_field= 'province_code';
+							else if (location_type == 'cities')
+								params.id_field= 'city_code';
+							else if (location_type == 'barangays')
+								params.id_field= 'barangay_code';
+
                             return params;
                         },
 						results: function (data) {
