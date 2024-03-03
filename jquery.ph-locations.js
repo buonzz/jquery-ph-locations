@@ -117,6 +117,10 @@
 			},
 			select2: function(options){
 
+				if ($(this.element).hasClass("select2-hidden-accessible")){
+					$(this.element).select2('destroy');
+				}
+
 				this.settings.location_type = options.location_type;
 
 				var api_url = this.settings.api_base_url +  this.settings.location_type
@@ -164,7 +168,7 @@
 							else if (location_type == 'cities')
 								params.id_field= 'city_code';
 							else if (location_type == 'barangays')
-								params.id_field= 'barangay_code';
+								params.id_field= 'brgy_code';
 
                             return params;
                         },
